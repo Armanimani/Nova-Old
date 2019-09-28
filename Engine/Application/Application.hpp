@@ -6,7 +6,7 @@
 
 namespace nova
 {
-	class  NOVA_API Application
+	class NOVA_API Application
 	{
 	public:
 		void run();

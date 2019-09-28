@@ -88,11 +88,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Application\Sandbox.cpp" />
     <ClCompile Include="Application\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application\Application.hpp" />
+    <ClInclude Include="Application\Sandbox.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

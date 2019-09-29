@@ -21,5 +21,8 @@
     <ClCompile Include="Clock\TestClock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Clock\TestStopwatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

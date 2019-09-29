@@ -100,6 +100,7 @@
   <ItemGroup>
     <ClCompile Include="Clock\TestCalenderClock.cpp" />
     <ClCompile Include="Clock\TestClock.cpp" />
+    <ClCompile Include="Clock\TestStopwatch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

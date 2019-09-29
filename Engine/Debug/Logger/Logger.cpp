@@ -1,11 +1,19 @@
 #include "Engine/Debug/Logger/Logger.hpp"
 
-#include <chrono>
 #include <unordered_map>
-#include <ctime>
+
+#include "Engine/Clock/CalenderClock.hpp"
 
 namespace nova
 {
+	constexpr auto k_time_delimiter = ':';
+	constexpr auto k_date_delimiter = '/';
+	constexpr auto k_time_date_delimiter = "-";
+	constexpr auto k_name_prefix = '[';
+	constexpr auto k_name_postfix = ']';
+	constexpr auto k_message_prefix = ": ";
+	constexpr auto k_calender_information_postfix = ' ';
+	
 	std::unordered_map<Logger::MessageType, ConsoleController::ConsoleColor> Logger::m_color_registry
 	{
 		{ MessageType::normal, m_normal_color },
@@ -53,25 +61,28 @@ namespace nova
 		const auto time_str = get_formatted_time();
 		const auto name_str = get_formatted_name();
 
-		return time_str + ' ' + name_str + ": " + std::string(message);
+		return time_str + k_calender_information_postfix + name_str + k_message_prefix + std::string(message);
 	}
 
 	std::string Logger::get_formatted_time()
 	{
-		const auto time_point = std::chrono::system_clock::now();
-		const auto time_t = std::chrono::system_clock::to_time_t(time_point);
-		struct tm time_structure {}; 
-		const auto local_time = localtime_s(&time_structure, &time_t);
+		const auto calender_information = CalenderClock::get_calender_information();
 
-		const auto hour = std::to_string(time_structure.tm_hour);
-		const auto minute = std::to_string(time_structure.tm_min);
-		const auto second = std::to_string(time_structure.tm_sec);
+		const auto year = std::to_string(calender_information.year);
+		const auto month = std::to_string(calender_information.month);
+		const auto day = std::to_string(calender_information.day);
+		const auto hour = std::to_string(calender_information.hour);
+		const auto minute = std::to_string(calender_information.minute);
+		const auto second = std::to_string(calender_information.second);
+
+		const auto time_information{ hour + k_time_delimiter + minute + k_time_delimiter + second };
+		const auto date_information{ day + k_date_delimiter + month + k_date_delimiter + year };
 		
-		return { '[' + hour + ':' + minute + ':' + second + ']' };
+		return { date_information + k_time_date_delimiter + time_information };
 	}
 
 	std::string Logger::get_formatted_name() const
 	{
-		return { '[' + m_name + ']' };
+		return { k_name_prefix + m_name + k_name_postfix };
 	}
 }

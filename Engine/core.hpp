@@ -42,4 +42,6 @@ namespace nova
 	using Int64 = __int64;
 
 	using Float = float;
+
+	using Bool = bool;
 }

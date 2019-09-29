@@ -28,10 +28,8 @@ namespace nova
 			information,
 		};
 
-		[[nodiscard]]
-		static ConsoleController::ConsoleColor get_message_color(MessageType message_type);
-		[[nodiscard]]
-		static std::string get_formatted_time();
+		[[nodiscard]] static ConsoleController::ConsoleColor get_message_color(MessageType message_type);
+		[[nodiscard]] static std::string get_formatted_time();
 
 		static std::unordered_map<MessageType, ConsoleController::ConsoleColor> m_color_registry;
 
@@ -40,10 +38,8 @@ namespace nova
 		constexpr static ConsoleController::ConsoleColor m_warning_color{ 14 };
 		constexpr static ConsoleController::ConsoleColor m_information_color{ 10 };
 		
-		[[nodiscard]]
-		std::string get_formatted_string(const std::string_view& message) const;
-		[[nodiscard]]
-		std::string get_formatted_name() const;
+		[[nodiscard]] std::string get_formatted_string(const std::string_view& message) const;
+		[[nodiscard]] std::string get_formatted_name() const;
 
 		void print_message(const std::string_view& message, MessageType message_type) const;
 		

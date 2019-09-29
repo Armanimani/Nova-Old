@@ -109,6 +109,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Clock\CalenderClock.cpp" />
     <ClCompile Include="Clock\Clock.cpp" />
     <ClCompile Include="Debug\Logger\Logger.cpp" />
     <ClCompile Include="Debug\Logger\LoggerManager.cpp" />
@@ -116,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.hpp" />
+    <ClInclude Include="Clock\CalenderClock.hpp" />
     <ClInclude Include="core.hpp" />
     <ClInclude Include="Debug\Logger\ConsoleController.hpp" />
     <ClInclude Include="Debug\Logger\Logger.hpp" />

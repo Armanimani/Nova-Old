@@ -3,7 +3,7 @@
 #include "Engine/Clock/Clock.hpp"
 #include "gtest/gtest.h"
 
-void wait()
+void clock_wait()
 {
 	std::this_thread::sleep_for(std::chrono::milliseconds{ 2 });
 }
@@ -22,7 +22,7 @@ TEST(Clock, TestTick_withoutStart)
 {
 	nova::Clock clock {};
 
-	wait();
+	clock_wait();
 	clock.tick();
 
 	EXPECT_EQ(std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time()).count(), 0.0);
@@ -35,7 +35,7 @@ TEST(Clock, TestTick_withStart)
 	nova::Clock clock{};
 
 	clock.start();
-	wait();
+	clock_wait();
 	clock.tick();
 
 	EXPECT_NE(std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time()).count(), 0.0);
@@ -49,7 +49,7 @@ TEST(Clock, TestTick_multipleStart)
 	nova::Clock clock{};
 
 	clock.start();
-	wait();
+	clock_wait();
 	clock.tick();
 
 	const auto initial_elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time());
@@ -71,7 +71,7 @@ TEST(Clock, TestStop_withoutStart)
 {
 	nova::Clock clock{};
 
-	wait();
+	clock_wait();
 	clock.stop();
 
 	EXPECT_EQ(std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time()).count(), 0.0);
@@ -83,9 +83,9 @@ TEST(Clock, TestStop_withoutStart_withTick)
 {
 	nova::Clock clock{};
 
-	wait();
+	clock_wait();
 	clock.tick();
-	wait();
+	clock_wait();
 	clock.stop();
 
 	EXPECT_EQ(std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time()).count(), 0.0);
@@ -98,7 +98,7 @@ TEST(Clock, TestStop_withStart)
 	nova::Clock clock{};
 
 	clock.start();
-	wait();
+	clock_wait();
 	clock.stop();
 
 	EXPECT_NE(std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time()).count(), 0.0);
@@ -111,9 +111,9 @@ TEST(Clock, TestStop_withStart_withTick)
 	nova::Clock clock{};
 
 	clock.start();
-	wait();
+	clock_wait();
 	clock.tick();
-	wait();
+	clock_wait();
 	clock.stop();
 
 	EXPECT_NE(std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time()).count(), 0.0);
@@ -126,15 +126,15 @@ TEST(Clock, TestStop_multipleStop)
 	nova::Clock clock{};
 
 	clock.start();
-	wait();
+	clock_wait();
 	clock.tick();
 
 	const auto initial_elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time());
 	const auto initial_tick_time = std::chrono::duration_cast<std::chrono::microseconds>(clock.get_last_tick_time());
 	const auto initial_tick_count = clock.get_number_of_ticks();
 
-	wait();
-	wait();
+	clock_wait();
+	clock_wait();
 	clock.stop();
 
 	const auto final_elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(clock.get_elapsed_time());

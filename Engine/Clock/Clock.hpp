@@ -10,7 +10,7 @@ namespace nova
 	{
 	public:
 		using TickDurationType = std::chrono::milliseconds;
-		using ElapsedDurationType = std::chrono::seconds;
+		using ElapsedDurationType = std::chrono::milliseconds;
 		
 		void start() noexcept;
 		void stop() noexcept;

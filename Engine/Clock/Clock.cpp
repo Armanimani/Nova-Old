@@ -31,6 +31,8 @@ namespace nova
 
 	void Clock::tick() noexcept
 	{
+		if (!m_is_running)
+			LOG_ENGINE_WARNING("The clock is not started yet, the tick() is a no-op in this case!");
 		update();
 	}
 

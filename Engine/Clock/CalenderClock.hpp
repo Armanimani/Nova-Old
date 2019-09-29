@@ -4,7 +4,7 @@
 
 namespace nova
 {
-	struct CalenderInformation
+	struct NOVA_API CalenderInformation
 	{
 		Int32 year{};
 		Int32 month{};

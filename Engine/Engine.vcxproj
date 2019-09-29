@@ -109,10 +109,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Debug\Logger\Logger.cpp" />
+    <ClCompile Include="Debug\Logger\LoggerManager.cpp" />
+    <ClCompile Include="Platform\Windows\Win32ConsoleController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.hpp" />
     <ClInclude Include="core.hpp" />
+    <ClInclude Include="Debug\Logger\ConsoleController.hpp" />
+    <ClInclude Include="Debug\Logger\Logger.hpp" />
+    <ClInclude Include="Debug\Logger\LoggerManager.hpp" />
+    <ClInclude Include="Debug\Logger\Logger_Abstract.hpp" />
     <ClInclude Include="entry_point.hpp" />
     <ClInclude Include="nova.hpp" />
   </ItemGroup>

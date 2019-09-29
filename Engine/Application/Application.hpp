@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Engine\core.hpp"
+#include "Engine/core.hpp"
 
 namespace nova
 {

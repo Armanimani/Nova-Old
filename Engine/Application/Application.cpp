@@ -1,12 +1,15 @@
 #include "Engine//Application/Application.hpp"
 
-#include <iostream>
 
 namespace nova
-{
+{	
 	void Application::run()
 	{
-		std::cout << "Hello world" << std::endl;
+		LOG_ENGINE_ERROR("Error");
+		LOG_ENGINE_WARNING("Warning");
+		LOG_ENGINE_INFORMATION("Information");
+		LOG_APPLICATION_ERROR("Error");
+		LOG_APPLICATION_WARNING("Warning");
+		LOG_APPLICATION_INFORMATION("Information");
 	}
-		
 }

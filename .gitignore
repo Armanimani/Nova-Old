@@ -35,3 +35,9 @@
 Bin
 Build
 .vs
+
+# C#
+*.cache
+*.pdb
+*.CopyComplete
+*.resources

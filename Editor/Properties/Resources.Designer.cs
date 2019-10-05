@@ -63,6 +63,16 @@ namespace Editor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nova_logo_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("nova_logo_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap window_close_32 {
             get {
                 object obj = ResourceManager.GetObject("window_close_32", resourceCulture);

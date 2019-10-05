@@ -24,21 +24,10 @@ namespace Editor
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
-            // remove the border on top when using re-sizable window
-            AllowTransparency = true;
 
             update_title_bar_location();
         }
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.Style |= 0x40000;
-                return cp;
-            }
-        }
 
         private void update_title_bar_location()
         {

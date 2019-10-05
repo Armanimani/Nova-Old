@@ -54,6 +54,7 @@
             // 
             // lbWindowTitle
             // 
+            this.lbWindowTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbWindowTitle.AutoSize = true;
             this.lbWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWindowTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -191,6 +192,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNovaEditor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
             this.pnlLogo.ResumeLayout(false);

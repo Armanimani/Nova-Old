@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,20 @@ namespace Editor
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        private bool _consoleOutputActivated = true;
+
         public frmNovaEditor()
         {
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
-
             update_title_bar_location();
         }
 
+        public IntPtr GetGameHandleRef()
+        {
+            return pnlGame.Handle;
+        }
 
         private void update_title_bar_location()
         {

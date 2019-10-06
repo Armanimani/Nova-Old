@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Wrappers\EngineWrapper.cs" />
     <Compile Include="Forms\NovaEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>

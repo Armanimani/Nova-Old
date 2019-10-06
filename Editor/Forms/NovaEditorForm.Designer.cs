@@ -32,10 +32,16 @@
             this.btnMaximizeWindow = new System.Windows.Forms.Button();
             this.btnCloseWindow = new System.Windows.Forms.Button();
             this.pnlDragable = new System.Windows.Forms.Panel();
+            this.pnlGame = new System.Windows.Forms.Panel();
+            this.statusStripMain = new System.Windows.Forms.StatusStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTitle.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             this.pnlWindowControl.SuspendLayout();
             this.pnlDragable.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitle
@@ -43,6 +49,7 @@
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.pnlTitle.Controls.Add(this.lbWindowTitle);
             this.pnlTitle.Controls.Add(this.pnlTitleName);
+            this.pnlTitle.Controls.Add(this.menuStripMain);
             this.pnlTitle.Controls.Add(this.pnlLogo);
             this.pnlTitle.Controls.Add(this.pnlWindowControl);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -184,13 +191,63 @@
             this.pnlDragable.Size = new System.Drawing.Size(1920, 32);
             this.pnlDragable.TabIndex = 1;
             // 
+            // pnlGame
+            // 
+            this.pnlGame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGame.Location = new System.Drawing.Point(0, 0);
+            this.pnlGame.Name = "pnlGame";
+            this.pnlGame.Size = new System.Drawing.Size(1920, 1058);
+            this.pnlGame.TabIndex = 2;
+            // 
+            // statusStripMain
+            // 
+            this.statusStripMain.BackColor = System.Drawing.Color.DodgerBlue;
+            this.statusStripMain.Location = new System.Drawing.Point(0, 1058);
+            this.statusStripMain.Name = "statusStripMain";
+            this.statusStripMain.Size = new System.Drawing.Size(1920, 22);
+            this.statusStripMain.TabIndex = 2;
+            this.statusStripMain.Text = "statusStrip1";
+            // 
+            // menuStripMain
+            // 
+            this.menuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.menuStripMain.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStripMain.Location = new System.Drawing.Point(32, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(126, 32);
+            this.menuStripMain.TabIndex = 2;
+            this.menuStripMain.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            // 
             // frmNovaEditor
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.pnlDragable);
+            this.Controls.Add(this.pnlGame);
+            this.Controls.Add(this.statusStripMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStripMain;
             this.Name = "frmNovaEditor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTitle.ResumeLayout(false);
@@ -199,7 +256,10 @@
             this.pnlLogo.PerformLayout();
             this.pnlWindowControl.ResumeLayout(false);
             this.pnlDragable.ResumeLayout(false);
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -215,6 +275,11 @@
         private System.Windows.Forms.Panel pnlTitleName;
         private System.Windows.Forms.Label lbWindowTitle;
         private System.Windows.Forms.Panel pnlDragable;
+        private System.Windows.Forms.Panel pnlGame;
+        private System.Windows.Forms.StatusStrip statusStripMain;
+        private System.Windows.Forms.MenuStrip menuStripMain;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

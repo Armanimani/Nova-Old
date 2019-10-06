@@ -18,8 +18,16 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine-UnitTest", "Test\Engine-UnitTest\Engine-UnitTest.vcxproj", "{5EF80A6D-7A8D-4911-92BB-733EE8932CE5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor\Editor.csproj", "{2B46BDF5-90A3-4C89-B2E9-3C73D52F7C0A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB} = {1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{C5584021-8AF0-47EC-9DF2-0EAD903A15E3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor-Binding", "Bindings\Editor-Binding\Editor-Binding.vcxproj", "{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34C14B00-578C-46CB-8E24-DC664C48E062} = {34C14B00-578C-46CB-8E24-DC664C48E062}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +83,12 @@ Global
 		{C5584021-8AF0-47EC-9DF2-0EAD903A15E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5584021-8AF0-47EC-9DF2-0EAD903A15E3}.Release|x64.ActiveCfg = Release|Any CPU
 		{C5584021-8AF0-47EC-9DF2-0EAD903A15E3}.Release|x64.Build.0 = Release|Any CPU
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}.Debug|x64.ActiveCfg = Debug|x64
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}.Debug|x64.Build.0 = Debug|x64
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}.Release|Any CPU.ActiveCfg = Release|x64
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}.Release|x64.ActiveCfg = Release|x64
+		{1955D8E2-CAC8-4FA1-9C39-A00569EA7BEB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

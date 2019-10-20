@@ -79,5 +79,10 @@ namespace Editor
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
         }
+
+        private void statusStripMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

@@ -21,10 +21,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNovaEditor));
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lbWindowTitle = new System.Windows.Forms.Label();
             this.pnlTitleName = new System.Windows.Forms.Panel();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.btnLogo = new System.Windows.Forms.Button();
             this.pnlWindowControl = new System.Windows.Forms.Panel();
@@ -34,14 +36,11 @@
             this.pnlDragable = new System.Windows.Forms.Panel();
             this.pnlGame = new System.Windows.Forms.Panel();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
-            this.menuStripMain = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTitle.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             this.pnlWindowControl.SuspendLayout();
             this.pnlDragable.SuspendLayout();
-            this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitle
@@ -82,6 +81,36 @@
             this.pnlTitleName.Name = "pnlTitleName";
             this.pnlTitleName.Size = new System.Drawing.Size(0, 0);
             this.pnlTitleName.TabIndex = 1;
+            // 
+            // menuStripMain
+            // 
+            this.menuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.menuStripMain.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStripMain.Location = new System.Drawing.Point(32, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(43, 32);
+            this.menuStripMain.TabIndex = 2;
+            this.menuStripMain.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(30, 19);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
             // 
             // pnlLogo
             // 
@@ -166,7 +195,7 @@
             // btnCloseWindow
             // 
             this.btnCloseWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnCloseWindow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCloseWindow.BackgroundImage")));
+            this.btnCloseWindow.BackgroundImage = global::Editor.Properties.Resources.window_close_32;
             this.btnCloseWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCloseWindow.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCloseWindow.FlatAppearance.BorderSize = 0;
@@ -208,36 +237,6 @@
             this.statusStripMain.TabIndex = 2;
             this.statusStripMain.Text = "statusStrip1";
             // 
-            // menuStripMain
-            // 
-            this.menuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.menuStripMain.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStripMain.Location = new System.Drawing.Point(32, 0);
-            this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(126, 32);
-            this.menuStripMain.TabIndex = 2;
-            this.menuStripMain.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            // 
             // frmNovaEditor
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -252,12 +251,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();
             this.pnlWindowControl.ResumeLayout(false);
             this.pnlDragable.ResumeLayout(false);
-            this.menuStripMain.ResumeLayout(false);
-            this.menuStripMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -4,7 +4,16 @@
 #include <thread>
 
 namespace nova
-{	
+{
+	Application::Application()
+	{
+		//TODO: Create a window here and assign the handle to m_window_handle
+	}
+
+	Application::Application(Int64 window_handle) : m_window_handle{window_handle}
+	{
+	}
+
 	void Application::run()
 	{
 		LOG_ENGINE_ERROR("Error");

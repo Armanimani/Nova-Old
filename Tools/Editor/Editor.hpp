@@ -8,7 +8,8 @@ class Editor : public QMainWindow
 
 public:
 	Editor(QWidget *parent = Q_NULLPTR);
-
 private:
 	Ui::EditorClass ui;
+
+	void connect_signal_and_slots() const;
 };

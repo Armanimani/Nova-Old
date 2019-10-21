@@ -33,7 +33,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Editor.h">
+    <QtMoc Include="Editor.hpp">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -43,7 +43,12 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="Editor.qrc">
+    <ClInclude Include="StyleSheet\StyleSheetManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resource.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
   </ItemGroup>

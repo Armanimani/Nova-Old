@@ -1,0 +1,65 @@
+QMainWindow {
+	background-color: #1e1e1e;
+	padding-top: 0;
+}
+
+QDialog {
+	background-color: #1e1e1e;
+}
+
+QStatusBar {
+	background-color: #1d90ff;
+}
+
+QMenuBar {
+	background-color: #1e1e1e;
+	color: #f0f0f0;
+}
+
+QMenuBar::item {
+	background-color: #1e1e1e;
+	color: #f0f0f0;
+}
+
+QMenuBar::item:selected {
+	background-color: #323232;
+}
+
+QMenuBar::item:pressed {
+	background-color: #1e90ff;
+}
+
+QMenu {
+	background-color: #1e1e1e;
+	color: #f0f0f0;
+}
+
+QMenu::item {
+	background-color: #1e1e1e;
+}
+
+QMenu::item:selected {
+	background-color: #323232;
+}
+
+QMenu::item:pressed {
+	background-color: #1e90ff;
+}
+
+QPushButton{
+	background-color: #1e1e1e;
+	border-style: none;
+	color: #1e90ff;
+}
+
+QPushButton:hover {
+	background-color: #323232;
+}
+
+QPushButton:pressed {
+	background-color: #1e90ff;
+}
+
+QLabel {
+	color: #f0f0f0
+}

@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/Editor">
+        <file>Resources/stylesheets/dark.qss</file>
+        <file>Resources/icons/nova_logo_white_32.ico</file>
+        <file>Resources/icons/nova_logo_white_32.png</file>
+        <file>Resources/icons/window_close_32.png</file>
+        <file>Resources/icons/window_maximize_32.png</file>
+        <file>Resources/icons/window_minimize_32.png</file>
+        <file>Resources/icons/window_restore_32.png</file>
+        <file>Resources/icons/nova_logo_black_32.png</file>
+    </qresource>
+</RCC>

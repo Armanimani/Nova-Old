@@ -3,6 +3,8 @@
 #include<QtCore/QFile>
 #include <unordered_map>
 
+#include "constants.hpp"
+
 enum class StyleSheetType
 {
 	dark
@@ -25,6 +27,6 @@ inline QString StyleSheetManager::get_stylesheet(const StyleSheetType type)
 }
 
 std::unordered_map<StyleSheetType, QString> StyleSheetManager::m_registry =
-	{
-		{StyleSheetType::dark, ":/Editor/Resources/stylesheets/dark.qss"}
-	};
+{
+	{StyleSheetType::dark, k_stylesheet_dark}
+};

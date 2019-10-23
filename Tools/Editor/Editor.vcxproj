@@ -122,6 +122,7 @@
     <QtUic Include="Editor.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="constants.hpp" />
     <ClInclude Include="StyleSheet\StyleSheetManager.hpp" />
   </ItemGroup>
   <ItemGroup>

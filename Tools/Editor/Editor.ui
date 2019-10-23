@@ -2,27 +2,31 @@
 <ui version="4.0">
  <class>EditorClass</class>
  <widget class="QMainWindow" name="EditorClass">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>2130</width>
+    <height>1304</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Editor</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout"/>
-  </widget>
+  <property name="animated">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1920</width>
+     <width>2130</width>
      <height>21</height>
     </rect>
    </property>

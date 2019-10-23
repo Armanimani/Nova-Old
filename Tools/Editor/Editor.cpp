@@ -1,19 +1,21 @@
 #include "Editor.hpp"
 
 #include "StyleSheet/StyleSheetManager.hpp"
+#include "constants.hpp"
 
 Editor::Editor(QWidget *parent)
 	: QMainWindow(parent)
 {
+	this->setStyleSheet(StyleSheetManager::get_stylesheet(StyleSheetType::dark));
+	
 	ui.setupUi(this);
 	
-	this->setStyleSheet(StyleSheetManager::get_stylesheet(StyleSheetType::dark));
-	this->setWindowIcon(QIcon(":/Editor/Resources/icons/nova_logo_black_32.png"));
+	this->setWindowIcon(QIcon(k_icon_nova_logo_black_32));
 
 	connect_signal_and_slots();
 }
 
 void Editor::connect_signal_and_slots() const
 {
-	connect(ui.action_Exit, &QAction::triggered, this, &QMainWindow::close);
+	QObject::connect(ui.action_Exit, &QAction::triggered, this, &QMainWindow::close);
 }

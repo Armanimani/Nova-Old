@@ -3,9 +3,9 @@
 #include "ui_Editor.h"
 
 #include <memory>
-#include <QtWidgets/QTextEdit>
 
-#include "Utilities//IO/StreamOutputController.hpp"
+#include "Controllers/IO/StreamOutputController.hpp"
+#include "Controllers/Engine/EngineController.hpp"
 
 
 class Editor : public QMainWindow
@@ -14,12 +14,16 @@ class Editor : public QMainWindow
 
 public:
 	Editor(QWidget *parent = Q_NULLPTR);
+protected:
+	void closeEvent(QCloseEvent* event) override;
 private slots:
 	void on_text_edit_output_text_changed();
 private:
 	Ui::EditorClass ui;
-	std::unique_ptr<StreamOutputController> m_output_controller{ nullptr };
+	std::unique_ptr<StreamOutputController> m_output_controller{};
+	std::unique_ptr<EngineController> m_engine_controller{};
 
 	void connect_signal_and_slots() const;
 	void redirect_stream_output();
+	void initialize_engine();
 };

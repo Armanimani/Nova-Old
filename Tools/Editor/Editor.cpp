@@ -18,6 +18,13 @@ Editor::Editor(QWidget *parent)
 
 	redirect_stream_output();
 	connect_signal_and_slots();
+	
+	initialize_engine();
+}
+
+void Editor::closeEvent(QCloseEvent* event)
+{
+	m_engine_controller.release();
 }
 
 void Editor::on_text_edit_output_text_changed()
@@ -35,4 +42,9 @@ void Editor::connect_signal_and_slots() const
 void Editor::redirect_stream_output()
 {
 	m_output_controller = std::make_unique<StreamOutputController>(std::cout, ui.textEdit_output);
+}
+
+void Editor::initialize_engine()
+{
+	m_engine_controller = std::make_unique<EngineController>(0);
 }

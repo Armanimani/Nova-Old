@@ -15,7 +15,7 @@ extern std::unique_ptr<nova::Application> create_application();
 int main()
 {		
 	auto application = create_application();
-	application->run();
+	application->start();
 
 	return EXIT_SUCCESS;
 }

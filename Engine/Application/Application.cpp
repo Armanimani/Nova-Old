@@ -1,41 +1,103 @@
 #include "Engine/Application/Application.hpp"
 
-#include "Engine/Clock/Clock.hpp"
 #include <thread>
 
 namespace nova
 {
 	Application::Application()
 	{
+		m_application_stopwatch.start();
+		
 		//TODO: Create a window here and assign the handle to m_window_handle
+
+		initialize();
 	}
 
-	Application::Application(Int64 window_handle) : m_window_handle{window_handle}
+	Application::Application(const Int64 window_handle) : m_window_handle{window_handle}
 	{
+		initialize();
 	}
 
-	void Application::run()
+	void Application::initialize()
 	{
-		LOG_ENGINE_ERROR("Error");
-		LOG_ENGINE_WARNING("Warning");
-		LOG_ENGINE_INFORMATION("Information");
-		LOG_APPLICATION_ERROR("Error");
-		LOG_APPLICATION_WARNING("Warning");
-		LOG_APPLICATION_INFORMATION("Information");
+		LOG_ENGINE_INFORMATION("Initializing...");
+		m_application_stopwatch.start();
+		
+		m_state.run_state = ApplicationState::RunState::stopped;
 
-		Clock clock;
-		clock.start();
+		const auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(m_application_stopwatch.get_elapsed_time());
+		LOG_ENGINE_INFORMATION("Done! took " + std::to_string(elapsed_time.count()) +" ms");
+	}
 
-		for (int i = 0; i != 10; ++i)
+	void Application::start()
+	{
+		LOG_ENGINE_INFORMATION("Running...");
+		
+		// starting the clocks
+		m_logic_clock.start();
+		m_frame_clock.start();
+
+		// starting the main loop
+		m_state.run_state = ApplicationState::RunState::running;
+		while (m_state.run_state != ApplicationState::RunState::stopped)
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds{1000});
-			LOG_ENGINE_INFORMATION(
-				"tick time -> " + std::to_string(clock.get_last_tick_time().count()) + " ms " + 
-				"elapsed time -> " + std::to_string(clock.get_elapsed_time().count()) + " s");
-			clock.tick();
+			m_logic_clock.tick();
+			update_engine_state();
 		}
-		clock.stop();
 
-		LOG_ENGINE_INFORMATION("total time -> " + std::to_string(clock.get_elapsed_time().count()) + " s");
+		LOG_ENGINE_INFORMATION("Done! took " + std::to_string(m_state.up_time.load().count()) + " ms");
+	}
+
+	void Application::pause() noexcept
+	{
+		if (m_state.run_state == ApplicationState::RunState::running)
+		{
+			m_state.run_state = ApplicationState::RunState::paused;
+			LOG_ENGINE_INFORMATION("Paused!");
+		}
+		else
+		{
+			LOG_ENGINE_WARNING("Unable to pause the application, the application is not in running state!");
+		}
+	}
+
+	void Application::resume() noexcept
+	{
+		if (m_state.run_state == ApplicationState::RunState::paused)
+		{
+			m_state.run_state = ApplicationState::RunState::running;
+			LOG_ENGINE_INFORMATION("Resumed!");
+		}
+		else
+		{
+			LOG_ENGINE_WARNING("Unable to resume the application, the application is not paused!");
+		}
+	}
+
+	void Application::stop() noexcept
+	{
+		m_state.run_state = ApplicationState::RunState::stopped;
+		LOG_ENGINE_INFORMATION("Stopped!");
+	}
+
+	ApplicationState& Application::get_application_state() noexcept
+	{
+		return m_state;
+	}
+
+	void Application::update_engine_state() noexcept
+	{
+		const auto up_time{ m_application_stopwatch.get_elapsed_time() };
+		m_state.up_time.store(up_time);
+
+		constexpr auto milliseconds_in_second{ 1000.0f };
+		
+		const auto last_frame_time{ m_frame_clock.get_last_tick_time() };
+		m_state.last_frame_time.store(last_frame_time);
+		m_state.fps.store(milliseconds_in_second / last_frame_time.count());
+
+		const auto last_logic_time{ m_logic_clock.get_last_tick_time() };
+		m_state.last_logic_time.store(last_logic_time);
+		m_state.ups.store(milliseconds_in_second / last_logic_time.count());
 	}
 }

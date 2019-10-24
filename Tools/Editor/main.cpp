@@ -1,10 +1,13 @@
 #include "Editor.hpp"
+
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
 	QApplication application(argc, argv);
+	
 	Editor window;
 	window.show();
-	return application.exec();
+	const auto return_code = application.exec();
+	return return_code;
 }

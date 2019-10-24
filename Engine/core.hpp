@@ -12,7 +12,7 @@
 // Disable warning for STL using in private data member
 #pragma warning(disable:4251)
 
-#ifdef _DEBUG
+#ifndef DEPLOYMENT
 	#include "Engine/Debug/Logger/LoggerManager.hpp"
 
 	#define LOG_ENGINE_ERROR(X) nova::LoggerManager::get_engine_logger()->log_error(X)

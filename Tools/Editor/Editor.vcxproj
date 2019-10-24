@@ -72,7 +72,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\Qt\include;$(IntDir)\uic\;$(Qt_INCLUDEPATH_);$(SolutionDir)Tools\Editor\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\Qt\include;$(IntDir)\uic\;$(Qt_INCLUDEPATH_);$(SolutionDir)Tools\Editor\;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
       <WarningLevel>Level1</WarningLevel>
@@ -95,7 +95,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\Qt\include;$(IntDir)\uic\;$(Qt_INCLUDEPATH_);$(SolutionDir)Tools\Editor\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\Qt\include;$(IntDir)\uic\;$(Qt_INCLUDEPATH_);$(SolutionDir)Tools\Editor\;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
       <WarningLevel>Level1</WarningLevel>
@@ -114,6 +114,7 @@
   <ItemGroup>
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Utilities\IO\StreamOutputController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Editor.hpp" />
@@ -124,9 +125,15 @@
   <ItemGroup>
     <ClInclude Include="constants.hpp" />
     <ClInclude Include="StyleSheet\StyleSheetManager.hpp" />
+    <ClInclude Include="Utilities\IO\StreamOutputController.hpp" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Engine.vcxproj">
+      <Project>{34c14b00-578c-46cb-8e24-dc664c48e062}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -18,16 +18,20 @@ Editor::Editor(QWidget *parent)
 
 	redirect_stream_output();
 	connect_signal_and_slots();
-	
+}
+
+void Editor::showEvent(QShowEvent* event)
+{
 	initialize_engine();
 }
 
 void Editor::closeEvent(QCloseEvent* event)
 {
-	m_engine_controller.release();
+	// Ensure the std::cout is piped back to console	
+	m_engine_controller->get_engine()->stop();
 }
 
-void Editor::on_text_edit_output_text_changed()
+void Editor::on_text_edit_output_text_changed() const
 {
 	auto vertical_scroll_bar = static_cast<QScrollBar*>(ui.textEdit_output->verticalScrollBar());
 	vertical_scroll_bar->setValue(vertical_scroll_bar->maximum());

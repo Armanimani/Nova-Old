@@ -1,4 +1,5 @@
 #include "EngineController.hpp"
+#include "Engine/Application/ApplicationState.hpp"
 
 EngineController::EngineController(const int window_handle)
 {
@@ -12,7 +13,9 @@ EngineController::EngineController(const int window_handle)
 
 EngineController::~EngineController()
 {
-	m_engine->stop();
+	if (m_engine->get_application_state().run_state != nova::ApplicationState::RunState::stopped)
+		m_engine->stop();
+	
 	m_thread->join();
 }
 

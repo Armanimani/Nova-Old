@@ -15,9 +15,10 @@ class Editor : public QMainWindow
 public:
 	Editor(QWidget *parent = Q_NULLPTR);
 protected:
+	void showEvent(QShowEvent* event) override;
 	void closeEvent(QCloseEvent* event) override;
 private slots:
-	void on_text_edit_output_text_changed();
+	void on_text_edit_output_text_changed() const;
 private:
 	Ui::EditorClass ui;
 	std::unique_ptr<StreamOutputController> m_output_controller{};

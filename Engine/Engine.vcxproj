@@ -108,6 +108,7 @@
     <ClInclude Include="entry_point.hpp" />
     <ClInclude Include="nova.hpp" />
     <ClInclude Include="Clock\Clock.hpp" />
+    <ClInclude Include="Window\Window_Abstract.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -38,7 +38,7 @@ namespace nova
 		m_frame_clock.start();
 
 		// starting the main loop
-		m_state.run_state = ApplicationState::RunState::running;
+		m_state.run_state.store(ApplicationState::RunState::running);
 		while (m_state.run_state != ApplicationState::RunState::stopped)
 		{
 			m_logic_clock.tick();
@@ -52,7 +52,7 @@ namespace nova
 	{
 		if (m_state.run_state == ApplicationState::RunState::running)
 		{
-			m_state.run_state = ApplicationState::RunState::paused;
+			m_state.run_state.store(ApplicationState::RunState::paused);
 			LOG_ENGINE_INFORMATION("Paused!");
 		}
 		else
@@ -65,7 +65,7 @@ namespace nova
 	{
 		if (m_state.run_state == ApplicationState::RunState::paused)
 		{
-			m_state.run_state = ApplicationState::RunState::running;
+			m_state.run_state.store(ApplicationState::RunState::running);
 			LOG_ENGINE_INFORMATION("Resumed!");
 		}
 		else
@@ -76,7 +76,7 @@ namespace nova
 
 	void Application::stop() noexcept
 	{
-		m_state.run_state = ApplicationState::RunState::stopped;
+		m_state.run_state.store(ApplicationState::RunState::stopped);
 		LOG_ENGINE_INFORMATION("Stopped!");
 	}
 

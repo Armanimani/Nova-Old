@@ -54,6 +54,9 @@
     <ClInclude Include="Application\ApplicationState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Window\Window_Abstract.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp">

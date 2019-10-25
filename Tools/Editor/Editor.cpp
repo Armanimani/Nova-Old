@@ -51,5 +51,5 @@ void Editor::redirect_stream_output()
 
 void Editor::initialize_engine()
 {
-	m_engine_controller = std::make_unique<EngineController>(0);
+	m_engine_controller = std::make_unique<EngineController>(ui.widget_engine->get_window_handle());
 }

@@ -1,5 +1,5 @@
 #include "EngineApplication.hpp"
 
-EngineApplication::EngineApplication(const int window_handle): Application(window_handle)
+EngineApplication::EngineApplication(nova::ApplicationSettings settings, int window_handle): Application(settings, window_handle)
 {	
 }

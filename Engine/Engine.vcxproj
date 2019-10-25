@@ -63,7 +63,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\GLEW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -83,7 +84,8 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\GLEW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -94,10 +96,14 @@
     <ClCompile Include="Clock\Timer.cpp" />
     <ClCompile Include="Debug\Logger\Logger.cpp" />
     <ClCompile Include="Debug\Logger\LoggerManager.cpp" />
+    <ClCompile Include="Graphics\Context\GraphicContext.cpp" />
+    <ClCompile Include="Graphics\Context\GraphicContextManager.cpp" />
+    <ClCompile Include="Platform\OpenGL\OpenGLGraphicContext.cpp" />
     <ClCompile Include="Platform\Windows\Win32ConsoleController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.hpp" />
+    <ClInclude Include="Application\ApplicationSettings.hpp" />
     <ClInclude Include="Application\ApplicationState.hpp" />
     <ClInclude Include="Clock\CalenderClock.hpp" />
     <ClInclude Include="Clock\Stopwatch.hpp" />
@@ -108,8 +114,12 @@
     <ClInclude Include="Debug\Logger\LoggerManager.hpp" />
     <ClInclude Include="Debug\Logger\Logger_Abstract.hpp" />
     <ClInclude Include="entry_point.hpp" />
+    <ClInclude Include="Graphics\Context\GraphicAPI.hpp" />
+    <ClInclude Include="Graphics\Context\GraphicContext.hpp" />
+    <ClInclude Include="Graphics\Context\GraphicContextManager.hpp" />
     <ClInclude Include="nova.hpp" />
     <ClInclude Include="Clock\Clock.hpp" />
+    <ClInclude Include="Platform\OpenGL\OpenGLGraphicContext.hpp" />
     <ClInclude Include="Window\Window_Abstract.hpp" />
   </ItemGroup>
   <ItemGroup>

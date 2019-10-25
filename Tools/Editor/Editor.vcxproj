@@ -131,7 +131,7 @@
     <ClInclude Include="Controllers\Engine\EngineController.hpp" />
     <ClInclude Include="StyleSheet\StyleSheetManager.hpp" />
     <ClInclude Include="Controllers\IO\StreamOutputController.hpp" />
-    <ClInclude Include="Widgets\EngineWidget.hpp" />
+    <QtMoc Include="Widgets\EngineWidget.hpp" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc" />

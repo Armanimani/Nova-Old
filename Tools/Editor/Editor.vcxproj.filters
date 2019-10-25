@@ -48,6 +48,9 @@
     <QtMoc Include="Editor.hpp">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Widgets\EngineWidget.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Editor.ui">
@@ -68,9 +71,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controllers\Engine\EngineController.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Widgets\EngineWidget.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,19 +1,20 @@
 #include "Engine/Application/Application.hpp"
+#include "Engine/Graphics/Context/GraphicContextManager.hpp"
 
 #include <thread>
+#include <GL/glew.h>
+#include <iostream>
 
 namespace nova
 {
-	Application::Application()
-	{
-		m_application_stopwatch.start();
-		
+	Application::Application(const ApplicationSettings settings) : m_settings{ settings }
+	{		
 		//TODO: Create a window here and assign the handle to m_window_handle
 
 		initialize();
 	}
 
-	Application::Application(const Int64 window_handle) : m_window_handle{window_handle}
+	Application::Application(const ApplicationSettings settings, const Int64 window_handle) : m_settings{ settings }, m_window_handle { window_handle }
 	{
 		initialize();
 	}
@@ -22,6 +23,8 @@ namespace nova
 	{
 		LOG_ENGINE_INFORMATION("Initializing...");
 		m_application_stopwatch.start();
+
+		GraphicContextManager::Create(m_window_handle, m_settings.graphic_api);
 		
 		m_state.run_state = ApplicationState::RunState::stopped;
 
@@ -37,11 +40,16 @@ namespace nova
 		m_logic_clock.start();
 		m_frame_clock.start();
 
+		// Note: Initialization of graphic context should be done after creation of the window
+		GraphicContextManager::initialize();
+		
 		// starting the main loop
 		m_state.run_state.store(ApplicationState::RunState::running);
 		while (m_state.run_state != ApplicationState::RunState::stopped)
 		{
 			m_logic_clock.tick();
+
+			GraphicContextManager::present();
 			update_engine_state();
 		}
 

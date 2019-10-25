@@ -51,5 +51,7 @@ void Editor::redirect_stream_output()
 
 void Editor::initialize_engine()
 {
-	m_engine_controller = std::make_unique<EngineController>(ui.widget_engine->get_window_handle());
+	nova::ApplicationSettings settings{};
+	settings.graphic_api = nova::GraphicAPI::OpenGL;
+	m_engine_controller = std::make_unique<EngineController>(settings, ui.widget_engine->get_window_handle());
 }

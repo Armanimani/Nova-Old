@@ -9,7 +9,7 @@
 class EngineController
 {
 public:
-	EngineController(int window_handle);
+	EngineController(nova::ApplicationSettings settings, int window_handle);
 	~EngineController();
 
 	[[nodiscard]] EngineApplication* get_engine() noexcept;

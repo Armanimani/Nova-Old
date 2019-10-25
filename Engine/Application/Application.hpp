@@ -4,6 +4,7 @@
 
 #include "Engine/core.hpp"
 #include "Engine/Application/ApplicationState.hpp"
+#include "Engine/Application/ApplicationSettings.hpp"
 #include "Engine/Clock/Clock.hpp"
 #include "Engine/Clock/Stopwatch.hpp"
 
@@ -12,8 +13,8 @@ namespace nova
 	class NOVA_API Application
 	{
 	public:
-		Application();
-		explicit Application(Int64 window_handle);
+		Application(ApplicationSettings settings);
+		explicit Application(ApplicationSettings settings, Int64 window_handle);
 		
 		void start();
 		void pause() noexcept;
@@ -24,6 +25,7 @@ namespace nova
 	private:
 		Int64 m_window_handle{ 0 };
 		ApplicationState m_state{};
+		ApplicationSettings m_settings{};
 
 		Stopwatch m_application_stopwatch{};
 		Clock m_frame_clock{};

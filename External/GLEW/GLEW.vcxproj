@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -12,19 +12,19 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{34C14B00-578C-46CB-8E24-DC664C48E062}</ProjectGuid>
-    <RootNamespace>Engine</RootNamespace>
+    <ProjectGuid>{F2B4308C-B1EE-41D6-B5BF-75643ADE73AB}</ProjectGuid>
+    <RootNamespace>GLEW</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -50,22 +50,6 @@
     <OutDir>$(SolutionDir)Bin\$(Platform)-$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)External\GLEW\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOVA_BUILD_DLL;NOVA_PLATFORM_WINDOWS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -75,47 +59,26 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)External\GLEW\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NOVA_BUILD_DLL;NOVA_PLATFORM_WINDOWS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application\Application.cpp" />
-    <ClCompile Include="Clock\CalenderClock.cpp" />
-    <ClCompile Include="Clock\Clock.cpp" />
-    <ClCompile Include="Clock\Stopwatch.cpp" />
-    <ClCompile Include="Clock\Timer.cpp" />
-    <ClCompile Include="Debug\Logger\Logger.cpp" />
-    <ClCompile Include="Debug\Logger\LoggerManager.cpp" />
-    <ClCompile Include="Platform\Windows\Win32ConsoleController.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Application\Application.hpp" />
-    <ClInclude Include="Application\ApplicationState.hpp" />
-    <ClInclude Include="Clock\CalenderClock.hpp" />
-    <ClInclude Include="Clock\Stopwatch.hpp" />
-    <ClInclude Include="Clock\Timer.hpp" />
-    <ClInclude Include="core.hpp" />
-    <ClInclude Include="Debug\Logger\ConsoleController.hpp" />
-    <ClInclude Include="Debug\Logger\Logger.hpp" />
-    <ClInclude Include="Debug\Logger\LoggerManager.hpp" />
-    <ClInclude Include="Debug\Logger\Logger_Abstract.hpp" />
-    <ClInclude Include="entry_point.hpp" />
-    <ClInclude Include="nova.hpp" />
-    <ClInclude Include="Clock\Clock.hpp" />
-    <ClInclude Include="Window\Window_Abstract.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\External\GLEW\GLEW.vcxproj">
-      <Project>{f2b4308c-b1ee-41d6-b5bf-75643ade73ab}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

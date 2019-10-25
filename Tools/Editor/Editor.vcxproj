@@ -117,6 +117,7 @@
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Controllers\IO\StreamOutputController.cpp" />
+    <ClCompile Include="Widgets\EngineWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Editor.hpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="Controllers\Engine\EngineController.hpp" />
     <ClInclude Include="StyleSheet\StyleSheetManager.hpp" />
     <ClInclude Include="Controllers\IO\StreamOutputController.hpp" />
+    <ClInclude Include="Widgets\EngineWidget.hpp" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc" />

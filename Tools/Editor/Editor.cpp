@@ -27,8 +27,9 @@ void Editor::showEvent(QShowEvent* event)
 
 void Editor::closeEvent(QCloseEvent* event)
 {
-	// Ensure the std::cout is piped back to console	
-	m_engine_controller->get_engine()->stop();
+	// Ensure the std::cout is piped back to console
+	m_output_controller.reset();
+	m_engine_controller.reset();
 }
 
 void Editor::on_text_edit_output_text_changed() const

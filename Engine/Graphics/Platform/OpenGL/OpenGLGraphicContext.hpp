@@ -11,6 +11,12 @@ namespace nova::graphics
 	{
 	public:
 		OpenGLGraphicContext(void* window_handle);
+		~OpenGLGraphicContext();
+
+		OpenGLGraphicContext(const OpenGLGraphicContext& other) = delete;
+		OpenGLGraphicContext(OpenGLGraphicContext&& other) noexcept = delete;
+		OpenGLGraphicContext& operator=(const OpenGLGraphicContext& other) = delete;
+		OpenGLGraphicContext& operator=(OpenGLGraphicContext&& other) noexcept = delete;
 		
 		void initialize() final;
 		void present() final;
@@ -18,5 +24,6 @@ namespace nova::graphics
 	private:
 		HWND m_window_handle{};
 		HDC m_device_context_handle{};
+		HGLRC m_rendering_context_handle{};
 	};
 }

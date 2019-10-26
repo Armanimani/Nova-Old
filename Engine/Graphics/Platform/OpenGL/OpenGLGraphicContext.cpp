@@ -10,6 +10,19 @@ namespace nova::graphics
 		m_window_handle = reinterpret_cast <HWND>(window_handle);
 	}
 
+	OpenGLGraphicContext::~OpenGLGraphicContext()
+	{
+		if (!wglGetCurrentContext())
+		{
+			wglMakeCurrent(m_device_context_handle, nullptr);
+		}
+
+		if (!m_rendering_context_handle)
+		{
+			wglDeleteContext(m_rendering_context_handle);
+		}
+	}
+
 	void OpenGLGraphicContext::initialize()
 	{
 		m_device_context_handle = GetDC(m_window_handle);
@@ -41,14 +54,14 @@ namespace nova::graphics
 			LOG_ENGINE_ERROR("Unable to set the pixel format");
 		}
 		
-		const auto handle_rendering_context = wglCreateContext(m_device_context_handle);
+		m_rendering_context_handle = wglCreateContext(m_device_context_handle);
 
-		if (!handle_rendering_context)
+		if (!m_rendering_context_handle)
 		{
 			LOG_ENGINE_ERROR("Failed to create OpenGL rendering context");
 		}
 
-		if (!wglMakeCurrent(m_device_context_handle, handle_rendering_context))
+		if (!wglMakeCurrent(m_device_context_handle, m_rendering_context_handle))
 		{
 			LOG_ENGINE_ERROR("Failed to set OpenGL rendering context");
 		}

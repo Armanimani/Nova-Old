@@ -1,6 +1,6 @@
 #include "GraphicContextManager.hpp"
 
-#include "Engine/Platform/OpenGL/OpenGLGraphicContext.hpp"
+#include "Engine/Graphics/Platform/OpenGL/OpenGLGraphicContext.hpp"
 
 namespace nova
 {

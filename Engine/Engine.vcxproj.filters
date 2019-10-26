@@ -63,13 +63,13 @@
     <ClInclude Include="Graphics\Context\GraphicContext.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Platform\OpenGL\OpenGLGraphicContext.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Context\GraphicContextManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Application\ApplicationSettings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -78,9 +78,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Debug\Logger\Logger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform\Windows\Win32ConsoleController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Debug\Logger\LoggerManager.cpp">
@@ -98,13 +95,16 @@
     <ClCompile Include="Clock\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Platform\OpenGL\OpenGLGraphicContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Context\GraphicContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Context\GraphicContextManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\Logger\ConsoleController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

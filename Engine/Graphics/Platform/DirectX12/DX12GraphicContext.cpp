@@ -4,14 +4,9 @@
 
 namespace nova::graphics
 {
-	namespace directX12
-	{
-		HWND g_window_handle{};
-	}
-	
 	DX12GraphicContext::DX12GraphicContext(void* window_handle)
 	{
-		directX12::g_window_handle = reinterpret_cast<HWND>(window_handle);
+		m_window_handle = reinterpret_cast<HWND>(window_handle);
 	}
 
 	void DX12GraphicContext::initialize()

@@ -1,21 +1,24 @@
-#include "OpenGLGraphicContext.hpp"
+#include "Engine/Graphics/Platform/OpenGL/OpenGLGraphicContext.hpp"
 
 #include <GL/glew.h>
 #include <windows.h>
 
-namespace nova
+namespace nova::graphics
 {
-	// TODO: Refactor this code for window client
-	
-	HDC g_handle_device_context{};
-	
-	OpenGLGraphicContext::OpenGLGraphicContext(Int64 window_handle): GraphicContext(window_handle)
+	namespace openGL
 	{
+		HWND g_opengl_window_handle{};
+		HDC g_opengl_device_context{};
+	}
+	
+	OpenGLGraphicContext::OpenGLGraphicContext(void* window_handle)
+	{
+		openGL::g_opengl_window_handle = reinterpret_cast <HWND>(window_handle);
 	}
 
 	void OpenGLGraphicContext::initialize()
 	{
-		g_handle_device_context = GetDC((HWND)(get_window_handle()));
+		openGL::g_opengl_device_context = GetDC(openGL::g_opengl_window_handle);
 
 		PIXELFORMATDESCRIPTOR pixel_format_descriptor =
 		{
@@ -37,21 +40,21 @@ namespace nova
 			0, 0, 0
 		};
 
-		const auto pixel_format = ChoosePixelFormat(g_handle_device_context, &pixel_format_descriptor);
+		const auto pixel_format = ChoosePixelFormat(openGL::g_opengl_device_context, &pixel_format_descriptor);
 
-		if (!SetPixelFormat(g_handle_device_context, pixel_format, &pixel_format_descriptor))
+		if (!SetPixelFormat(openGL::g_opengl_device_context, pixel_format, &pixel_format_descriptor))
 		{
 			LOG_ENGINE_ERROR("Unable to set the pixel format");
 		}
 		
-		const auto handle_rendering_context = wglCreateContext(g_handle_device_context);
+		const auto handle_rendering_context = wglCreateContext(openGL::g_opengl_device_context);
 
 		if (!handle_rendering_context)
 		{
 			LOG_ENGINE_ERROR("Failed to create OpenGL rendering context");
 		}
 
-		if (!wglMakeCurrent(g_handle_device_context, handle_rendering_context))
+		if (!wglMakeCurrent(openGL::g_opengl_device_context, handle_rendering_context))
 		{
 			LOG_ENGINE_ERROR("Failed to set OpenGL rendering context");
 		}
@@ -64,10 +67,10 @@ namespace nova
 
 	void OpenGLGraphicContext::present()
 	{
-		SwapBuffers(g_handle_device_context);
+		SwapBuffers(openGL::g_opengl_device_context);
 	}
 
-	GraphicAPI OpenGLGraphicContext::get_graphic_api()
+	GraphicAPI OpenGLGraphicContext::get_graphic_api() const noexcept
 	{
 		return GraphicAPI::OpenGL;
 	}

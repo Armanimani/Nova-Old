@@ -37,9 +37,6 @@
     <ClCompile Include="Controllers\Engine\EngineController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\EngineApplication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Widgets\EngineWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -5,11 +5,11 @@
 
 namespace nova::graphics
 {
-	class NOVA_API OpenGLGraphicContext: public GraphicContextInterface
+	class NOVA_API DX12GraphicContext : public GraphicContextInterface
 	{
 	public:
-		OpenGLGraphicContext(void* window_handle);
-		
+		DX12GraphicContext(void* window_handle);
+
 		void initialize() final;
 		void present() final;
 		[[nodiscard]] GraphicAPI get_graphic_api() const noexcept final;

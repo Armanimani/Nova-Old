@@ -4,6 +4,7 @@
 
 class Sandbox: public nova::Application
 {
+	using nova::Application::Application;
 	
 };
 

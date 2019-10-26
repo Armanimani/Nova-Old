@@ -1,24 +1,30 @@
 #pragma once
 
 #include "Engine/core.hpp"
-#include "GraphicAPI.hpp"
+#include "Engine/Graphics/GraphicAPI.hpp"
+#include "Engine/Graphics/Context/GraphicContextInterface.hpp"
 
 #include <memory>
 
-namespace nova
+namespace nova::graphics
 {
 	class NOVA_API GraphicContext
 	{
 	public:
-		GraphicContext(Int64 window_handle);
-		virtual ~GraphicContext() = default;
-		
-		virtual void present() = 0;
-		virtual void initialize() = 0;
+		GraphicContext() = delete;
+		~GraphicContext() = delete;
+		GraphicContext(const GraphicContext& other) = delete;
+		GraphicContext(GraphicContext&& other) noexcept = delete;
+		GraphicContext& operator=(const GraphicContext& other) = delete;
+		GraphicContext& operator=(GraphicContext&& other) noexcept = delete;
 
-		[[nodiscard]] virtual GraphicAPI get_graphic_api() = 0;
-		[[nodiscard]] Int64 get_window_handle() const noexcept;	
+		static void set_window_handle(void* window_handle);
+		
+		static void set_graphic_api(GraphicAPI graphic_api);		
+		static GraphicContextInterface* get();
 	private:
-		Int64 m_window_handle{};
+		static std::unique_ptr<GraphicContextInterface> m_s_context;
+		static void* m_window_handle;
 	};
+
 }

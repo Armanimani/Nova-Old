@@ -97,7 +97,8 @@
     <ClCompile Include="Debug\Logger\Logger.cpp" />
     <ClCompile Include="Debug\Logger\LoggerManager.cpp" />
     <ClCompile Include="Graphics\Context\GraphicContext.cpp" />
-    <ClCompile Include="Graphics\Context\GraphicContextManager.cpp" />
+    <ClCompile Include="Graphics\GraphicSystem.cpp" />
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12GraphicContext.cpp" />
     <ClCompile Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.cpp" />
     <ClCompile Include="Debug\Logger\ConsoleController.cpp" />
   </ItemGroup>
@@ -114,9 +115,12 @@
     <ClInclude Include="Debug\Logger\LoggerManager.hpp" />
     <ClInclude Include="Debug\Logger\Logger_Abstract.hpp" />
     <ClInclude Include="entry_point.hpp" />
-    <ClInclude Include="Graphics\Context\GraphicAPI.hpp" />
     <ClInclude Include="Graphics\Context\GraphicContext.hpp" />
-    <ClInclude Include="Graphics\Context\GraphicContextManager.hpp" />
+    <ClInclude Include="Graphics\Context\GraphicContextInterface.hpp" />
+    <ClInclude Include="Graphics\GraphicAPI.hpp" />
+    <ClInclude Include="Graphics\GraphicSettings.hpp" />
+    <ClInclude Include="Graphics\GraphicSystem.hpp" />
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12GraphicContext.hpp" />
     <ClInclude Include="nova.hpp" />
     <ClInclude Include="Clock\Clock.hpp" />
     <ClInclude Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.hpp" />

@@ -6,6 +6,5 @@
 
 class EngineApplication: public nova::Application
 {
-public:
-	EngineApplication(nova::ApplicationSettings settings, int window_handle);
+	using nova::Application::Application;
 };

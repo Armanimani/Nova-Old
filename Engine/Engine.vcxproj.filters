@@ -57,19 +57,28 @@
     <ClInclude Include="Window\Window_Abstract.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Context\GraphicAPI.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Context\GraphicContext.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Context\GraphicContextManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Application\ApplicationSettings.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\GraphicSettings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicAPI.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Context\GraphicContextInterface.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12GraphicContext.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -98,13 +107,16 @@
     <ClCompile Include="Graphics\Context\GraphicContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Context\GraphicContextManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Debug\Logger\ConsoleController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12GraphicContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\GraphicSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

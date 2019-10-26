@@ -2,7 +2,7 @@
 
 #include "Engine/core.hpp"
 
-namespace nova
+namespace nova::graphics
 {
 	enum class NOVA_API GraphicAPI
 	{

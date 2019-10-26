@@ -8,7 +8,7 @@ class EngineWidget final : public QWidget
 public:
 	explicit EngineWidget(QWidget* parent);
 
-	[[nodiscard]] int get_window_handle() const noexcept;
+	[[nodiscard]] WId get_window_handle() const noexcept;
 protected:
 	QPaintEngine* paintEngine() const override;
 };

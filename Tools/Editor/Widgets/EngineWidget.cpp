@@ -4,7 +4,7 @@ EngineWidget::EngineWidget(QWidget* parent): QWidget(parent)
 {
 }
 
-int EngineWidget::get_window_handle() const noexcept
+WId EngineWidget::get_window_handle() const noexcept
 {
 	return winId();
 }

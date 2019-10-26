@@ -1,7 +1,7 @@
 #include "EngineController.hpp"
 #include "Engine/Application/ApplicationState.hpp"
 
-EngineController::EngineController(const nova::ApplicationSettings settings, const int window_handle)
+EngineController::EngineController(const nova::ApplicationSettings settings, void* window_handle)
 {
 	m_engine = std::make_unique<EngineApplication>(settings, window_handle);
 	m_thread = std::make_unique<std::thread>([this]()

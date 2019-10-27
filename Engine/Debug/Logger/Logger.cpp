@@ -13,6 +13,8 @@ namespace nova
 	constexpr auto k_name_postfix = ']';
 	constexpr auto k_message_prefix = ": ";
 	constexpr auto k_calender_information_postfix = ' ';
+	constexpr auto k_message_type_prefix = '[';
+	constexpr auto k_message_type_postfix = ']';
 	
 	std::unordered_map<Logger::MessageType, ConsoleController::ConsoleColor> Logger::m_color_registry
 	{
@@ -20,6 +22,14 @@ namespace nova
 		{ MessageType::error, m_error_color },
 		{ MessageType::warning, m_warning_color },
 		{ MessageType::information, m_information_color }
+	};
+
+	std::unordered_map<Logger::MessageType, std::string> Logger::m_message_type_dictionary
+	{
+		{ MessageType::normal, "MESSAGE    " },
+		{ MessageType::error, "ERROR      " },
+		{ MessageType::warning, "WARNING    " },
+		{ MessageType::information, "INFORMATION" }
 	};
 	
 	Logger::Logger( std::string name): m_name{std::move(name)}
@@ -43,7 +53,7 @@ namespace nova
 
 	void Logger::print_message(const std::string_view& message, const MessageType message_type) const
 	{
-		const auto formatted_string = get_formatted_string(message);
+		const auto formatted_string = get_formatted_string(message, message_type);
 		const auto message_color = get_message_color(message_type);
 		
 		ConsoleController::set_color(message_color);
@@ -56,12 +66,13 @@ namespace nova
 		return m_color_registry[message_type];
 	}
 
-	std::string Logger::get_formatted_string(const std::string_view& message) const
+	std::string Logger::get_formatted_string(const std::string_view& message, const MessageType message_type) const
 	{
 		const auto time_str = get_formatted_time();
 		const auto name_str = get_formatted_name();
+		const auto message_type_str = get_formatted_message_type(message_type);
 
-		return time_str + k_calender_information_postfix + name_str + k_message_prefix + std::string(message);
+		return time_str + k_calender_information_postfix + name_str + message_type_str + k_message_prefix + std::string(message);
 	}
 
 	std::string Logger::get_formatted_time()
@@ -84,5 +95,10 @@ namespace nova
 	std::string Logger::get_formatted_name() const
 	{
 		return { k_name_prefix + m_name + k_name_postfix };
+	}
+
+	std::string Logger::get_formatted_message_type(MessageType message_type) const
+	{
+		return { k_message_type_prefix + m_message_type_dictionary[message_type] + k_message_type_postfix };
 	}
 }

@@ -18,7 +18,7 @@ namespace nova::graphics
 		const D3D_FEATURE_LEVEL minimum_feature_level) noexcept
 	{
 		Microsoft::WRL::ComPtr<ID3D12Device6> device{};
-		if (!SUCCEEDED(D3D12CreateDevice(adapter, minimum_feature_level, IID_PPV_ARGS(&device))))
+		if (FAILED(D3D12CreateDevice(adapter, minimum_feature_level, IID_PPV_ARGS(&device))))
 		{
 			LOG_ENGINE_ERROR("Unable to create the DirectX12 device");
 		}

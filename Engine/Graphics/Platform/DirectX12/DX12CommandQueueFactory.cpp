@@ -21,7 +21,7 @@ namespace nova::graphics
 		Microsoft::WRL::ComPtr<ID3D12CommandQueue> command{};
 		const auto descriptor = get_descriptor(type, priority, 0);
 
-		if (!SUCCEEDED(device->CreateCommandQueue(&descriptor, IID_PPV_ARGS(&command))))
+		if (FAILED(device->CreateCommandQueue(&descriptor, IID_PPV_ARGS(&command))))
 		{
 			LOG_ENGINE_ERROR("Unable to create the command queue of DirectX");
 		}

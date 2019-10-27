@@ -10,7 +10,7 @@ namespace nova::graphics
 #ifndef DEPLYMENT
 		if (!m_s_debug)
 		{
-			if (!SUCCEEDED(D3D12GetDebugInterface(IID_PPV_ARGS(&m_s_debug))))
+			if (FAILED(D3D12GetDebugInterface(IID_PPV_ARGS(&m_s_debug))))
 			{
 				LOG_ENGINE_ERROR("Unable to enable_debug_interface the debugging layer of DirectX12");
 			}
@@ -24,7 +24,7 @@ namespace nova::graphics
 #ifndef DEPLYMENT
 		if (!m_s_info_queue)
 		{
-			if (!SUCCEEDED(device.As(&m_s_info_queue)))
+			if (FAILED(device.As(&m_s_info_queue)))
 			{
 				LOG_ENGINE_ERROR("Unable to querry the info queue for DirectX12");
 			}

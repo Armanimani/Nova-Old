@@ -1,11 +1,11 @@
-#include "DXD12DebugController.hpp"
+#include "DX12DebugController.hpp"
 
 namespace nova::graphics
 {
-	Microsoft::WRL::ComPtr<ID3D12Debug3> DXD12DebugController::m_s_debug;
-	Microsoft::WRL::ComPtr<ID3D12InfoQueue> DXD12DebugController::m_s_info_queue;
+	Microsoft::WRL::ComPtr<ID3D12Debug3> DX12DebugController::m_s_debug;
+	Microsoft::WRL::ComPtr<ID3D12InfoQueue> DX12DebugController::m_s_info_queue;
 	
-	void DXD12DebugController::enable_debug_interface() noexcept
+	void DX12DebugController::enable_debug_interface() noexcept
 	{
 #ifndef DEPLYMENT
 		if (!m_s_debug)
@@ -19,7 +19,7 @@ namespace nova::graphics
 #endif
 	}
 
-	void DXD12DebugController::enable_debug_info_queue(const Microsoft::WRL::ComPtr<ID3D12Device>& device) noexcept
+	void DX12DebugController::enable_debug_info_queue(const Microsoft::WRL::ComPtr<ID3D12Device>& device) noexcept
 	{
 #ifndef DEPLYMENT
 		if (!m_s_info_queue)

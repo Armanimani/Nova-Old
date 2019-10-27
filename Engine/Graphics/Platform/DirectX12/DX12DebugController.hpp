@@ -7,7 +7,7 @@
 
 namespace nova::graphics
 {
-	class NOVA_API DXD12DebugController
+	class NOVA_API DX12DebugController
 	{
 	public:
 		static void enable_debug_interface() noexcept;

@@ -3,8 +3,6 @@
 #include "Engine/core.hpp"
 #include "Engine/Graphics/GraphicSettings.hpp"
 
-#include <memory>
-
 namespace nova::graphics
 {
 	class NOVA_API GraphicSystem
@@ -15,7 +13,9 @@ namespace nova::graphics
 		static void initialize() noexcept;
 		static void present() noexcept;
 	private:
-		GraphicSettings m_settings {};
-		void* m_window_handle {};
+		GraphicSettings m_settings{};
+		void* m_window_handle{};
+		
+		static void update_adapter_information() noexcept;
 	};
 }

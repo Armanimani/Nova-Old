@@ -81,4 +81,10 @@ namespace nova::graphics
 	{
 		return GraphicAPI::OpenGL;
 	}
+
+	std::vector<GraphicCardInformation> OpenGLGraphicContext::get_adapter_information()
+	{
+		LOG_ENGINE_ERROR("Unable to get adaptor information for OpenGL, method is not implemented yet");
+		return {};
+	}
 }

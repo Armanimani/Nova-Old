@@ -21,6 +21,7 @@ namespace nova::graphics
 		void initialize() final;
 		void present() final;
 		[[nodiscard]] GraphicAPI get_graphic_api() const noexcept final;
+		[[nodiscard]] std::vector<GraphicCardInformation> get_adapter_information() final;
 	private:
 		HWND m_window_handle{};
 		HDC m_device_context_handle{};

@@ -14,10 +14,17 @@ namespace nova::graphics
 	void GraphicSystem::initialize() noexcept
 	{
 		GraphicContext::get()->initialize();
+		update_adapter_information();
 	}
 
 	void GraphicSystem::present() noexcept
 	{
 		GraphicContext::get()->present();
+	}
+
+	void GraphicSystem::update_adapter_information() noexcept
+	{
+		std::lock_guard<std::mutex> loc(SystemInformation::graphic_cards_mutex);
+		SystemInformation::graphic_cards = GraphicContext::get()->get_adapter_information();
 	}
 }

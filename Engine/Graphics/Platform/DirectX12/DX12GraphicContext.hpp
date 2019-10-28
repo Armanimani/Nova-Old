@@ -8,6 +8,7 @@
 #include <d3d12.h>
 #include <dxgi1_6.h>
 #include <D3DX12/d3dx12.h>
+#include <vector>
 
 
 namespace nova::graphics
@@ -37,9 +38,9 @@ namespace nova::graphics
 		Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_compute_command_queue{};
 		Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_copy_command_queue{};
 		
-		Microsoft::WRL::ComPtr<ID3D12Resource1> m_back_buffer{};
+		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource1>> m_back_buffer_list{};
 		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_RTV_descriptor_heap{};
 		
-		UINT m_RTV_descriptor_size{};
+		void update_render_target_views();
 	};
 }

@@ -31,13 +31,35 @@ namespace nova::graphics
 		
 		m_swap_chain = DX12SwapChainFactory::create(m_graphic_command_queue, m_window_handle, m_buffer_count);
 		
-		m_RTV_descriptor_heap = DX12DescriptorHeapFactory::create(m_device, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, 2);
+		m_RTV_descriptor_heap = DX12DescriptorHeapFactory::create(m_device, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, m_buffer_count);
+		update_render_target_views();
 	}
 
+	void DX12GraphicContext::update_render_target_views()
+	{
+		const auto descriptor_size = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+
+		CD3DX12_CPU_DESCRIPTOR_HANDLE handle(m_RTV_descriptor_heap->GetCPUDescriptorHandleForHeapStart());
+
+		for (auto i = 0;  i != m_buffer_count; ++i)
+		{
+			Microsoft::WRL::ComPtr<ID3D12Resource1> back_buffer;
+
+			if (FAILED(m_swap_chain->GetBuffer(i, IID_PPV_ARGS(&back_buffer))))
+			{
+				LOG_ENGINE_ERROR("Unable to create back buffers for DirectX12");
+			}
+
+			m_device->CreateRenderTargetView(back_buffer.Get(), nullptr, handle);
+			m_back_buffer_list.push_back(back_buffer);
+			handle.Offset(descriptor_size);
+		}
+	}
+	
 	void DX12GraphicContext::present()
 	{
 	}
-
+	
 	std::vector<GraphicCardInformation> DX12GraphicContext::get_adapter_information()
 	{
 		std::vector<GraphicCardInformation> result{};

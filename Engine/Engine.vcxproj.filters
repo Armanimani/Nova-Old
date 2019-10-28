@@ -69,9 +69,6 @@
     <ClInclude Include="Graphics\GraphicAPI.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Context\GraphicContextInterface.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Platform\OpenGL\OpenGLGraphicContext.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,6 +76,39 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\GraphicSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemInformation\SystemInformation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12DeviceFactory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12DXGIFactoryFactory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12CommandQueueFactory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12DebugController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12SwapChainFactory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12FeatureChecker.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12DescriptorHeapFactory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ContextManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\Context.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Context\GraphicContextManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -117,6 +147,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\GraphicSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemInformation\SystemInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12DeviceFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12DXGIFactoryFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12DebugController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12CommandQueueFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12SwapChainFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12FeatureChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12DescriptorHeapFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\ContextManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Context\GraphicContextManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

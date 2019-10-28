@@ -8,14 +8,14 @@
 #include "Engine/Clock/Clock.hpp"
 #include "Engine/Clock/Stopwatch.hpp"
 #include "Engine/Graphics/GraphicSystem.hpp"
+#include "Engine/Context/Context.hpp"
 
 namespace nova
 {
 	class NOVA_API Application
 	{
 	public:
-		Application(ApplicationSettings settings);
-		explicit Application(ApplicationSettings settings, void* window_handle);
+		explicit Application(ApplicationSettings settings);
 		
 		void start();
 		void pause() noexcept;
@@ -23,11 +23,11 @@ namespace nova
 		void stop() noexcept;
 
 		ApplicationState& get_application_state() noexcept;
-	private:
-		void* m_window_handle{};
+	private:		
+		ApplicationSettings m_settings{};
+		std::unique_ptr<Context> m_context{};
 		
 		ApplicationState m_state{};
-		ApplicationSettings m_settings{};
 
 		Stopwatch m_application_stopwatch{};
 		Clock m_frame_clock{};
@@ -35,6 +35,7 @@ namespace nova
 
 		std::unique_ptr<graphics::GraphicSystem> m_graphic_system{};
 
+		void initialize_context() noexcept;
 		void initialize();
 		void update_engine_state() noexcept;
 	};

@@ -4,27 +4,26 @@
 
 namespace nova::graphics
 {
-	GraphicSystem::GraphicSystem(const GraphicSettings settings, void* window_handle)
-		: m_settings{ settings }, m_window_handle {window_handle}
+	GraphicSystem::GraphicSystem(GraphicContext* context)
+		: m_context{context}
 	{
-		GraphicContext::set_window_handle(m_window_handle);
-		GraphicContext::set_graphic_api(m_settings.api);
 	}
 
-	void GraphicSystem::initialize() noexcept
+	void GraphicSystem::initialize() const noexcept
 	{
-		GraphicContext::get()->initialize();
+		m_context->initialize();
 		update_adapter_information();
 	}
 
-	void GraphicSystem::present() noexcept
+	void GraphicSystem::present() const noexcept
 	{
-		GraphicContext::get()->present();
+		m_context->present();
 	}
 
-	void GraphicSystem::update_adapter_information() noexcept
+	void GraphicSystem::update_adapter_information() const noexcept
 	{
 		std::lock_guard<std::mutex> loc(SystemInformation::graphic_cards_mutex);
-		SystemInformation::graphic_cards = GraphicContext::get()->get_adapter_information();
+
+		SystemInformation::graphic_cards = m_context->get_adapter_information();
 	}
 }

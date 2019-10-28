@@ -1,29 +1,16 @@
 #include "Engine/Application/Application.hpp"
 #include "Engine/Graphics/GraphicSystem.hpp"
+#include "Engine/Context/ContextManager.hpp"
 
-#include <thread>
-#include <GL/glew.h>
 #include <iostream>
 
 namespace nova
 {
 	Application::Application(const ApplicationSettings settings) : m_settings{ settings }
-	{		
-		//TODO: Create a window here and assign the handle to m_window_handle
-
-		initialize();
-
-		LOG_ENGINE_ERROR("This form of application creation is not yet supported by the engine");
-	}
-
-	Application::Application(const ApplicationSettings settings, void* window_handle)
-		: m_window_handle { window_handle }, m_settings{ settings }
 	{
-		m_graphic_system = std::make_unique<graphics::GraphicSystem>(settings.graphics, window_handle);
-
-		initialize();
+		
 	}
-
+	
 	void Application::initialize()
 	{
 		LOG_ENGINE_INFORMATION("Initializing...");
@@ -31,12 +18,28 @@ namespace nova
 		
 		m_state.run_state = ApplicationState::RunState::stopped;
 
+		if (!m_settings.graphics.window_handle)
+		{
+			// TODO: in this case we need to create a window and assign its handle to graphic settings
+			LOG_ENGINE_ERROR("window_handle is not specified, creation of the window is not supported yet!");
+		}
+		
+		initialize_context();
+
 		const auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(m_application_stopwatch.get_elapsed_time());
 		LOG_ENGINE_INFORMATION("Done! took " + std::to_string(elapsed_time.count()) +" ms");
 	}
 
+	void Application::initialize_context() noexcept
+	{
+		m_context = ContextManager::create(m_settings);
+		m_graphic_system = std::make_unique<graphics::GraphicSystem>(m_context->graphic_context.get());
+	}
+
 	void Application::start()
 	{
+		initialize();
+		
 		LOG_ENGINE_INFORMATION("Running...");
 		
 		// starting the clocks

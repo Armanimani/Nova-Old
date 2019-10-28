@@ -1,21 +1,19 @@
 #pragma once
 
 #include "Engine/core.hpp"
-#include "Engine/Graphics/GraphicSettings.hpp"
+#include "Engine/Graphics/Context/GraphicContext.hpp"
 
 namespace nova::graphics
 {
 	class NOVA_API GraphicSystem
 	{
 	public:
-		GraphicSystem(GraphicSettings settings, void* window_handle);
+		explicit GraphicSystem(GraphicContext* context);
 
-		static void initialize() noexcept;
-		static void present() noexcept;
+		void initialize() const noexcept;
+		void present() const noexcept;
 	private:
-		GraphicSettings m_settings{};
-		void* m_window_handle{};
-		
-		static void update_adapter_information() noexcept;
+		GraphicContext* m_context;
+		void update_adapter_information() const noexcept;
 	};
 }

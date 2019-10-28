@@ -7,6 +7,7 @@ namespace nova
 {
 	struct NOVA_API GraphicSettings
 	{
+		void* window_handle{};
 		graphics::GraphicAPI api{ graphics::GraphicAPI::OpenGL };
 	};
 }

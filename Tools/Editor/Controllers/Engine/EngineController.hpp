@@ -9,12 +9,11 @@
 class EngineController
 {
 public:
-	EngineController(nova::ApplicationSettings settings, void* window_handle);
+	EngineController(nova::ApplicationSettings settings);
 	~EngineController();
 
 	[[nodiscard]] EngineApplication* get_engine() noexcept;
 private:
 	std::unique_ptr<EngineApplication> m_engine{};
-	
 	std::unique_ptr<std::thread> m_thread{};
 };

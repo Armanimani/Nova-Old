@@ -3,7 +3,7 @@
 namespace nova::graphics
 {
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> DX12DescriptorHeapFactory::create(
-		Microsoft::WRL::ComPtr<ID3D12Device6>& device, D3D12_DESCRIPTOR_HEAP_TYPE type, UINT number) noexcept
+		Microsoft::WRL::ComPtr<ID3D12Device6>& device, const D3D12_DESCRIPTOR_HEAP_TYPE type, const UINT number) noexcept
 	{
 		const auto descriptor = get_descriptor(type, number);
 		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptor_heap{};

@@ -12,10 +12,10 @@ namespace nova::graphics
 	{
 	public:
 		static Microsoft::WRL::ComPtr<IDXGISwapChain4> create(Microsoft::WRL::ComPtr<ID3D12CommandQueue>& command_queue,
-			HWND window_handle) noexcept;
+			HWND window_handle, UINT buffer_count) noexcept;
 		static Microsoft::WRL::ComPtr<IDXGISwapChain4> create(Microsoft::WRL::ComPtr<ID3D12CommandQueue>& command_queue,
-			HWND window_handle, UINT resolution_x, UINT resolution_y) noexcept;
+			HWND window_handle, UINT resolution_x, UINT resolution_y, UINT buffer_count) noexcept;
 	private:
-		static DXGI_SWAP_CHAIN_DESC1 get_descriptor(UINT resolution_x, UINT resolution_y) noexcept;
+		static DXGI_SWAP_CHAIN_DESC1 get_descriptor(UINT resolution_x, UINT resolution_y, UINT buffer_count) noexcept;
 	};
 }

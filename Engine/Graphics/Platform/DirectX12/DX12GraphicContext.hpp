@@ -28,6 +28,7 @@ namespace nova::graphics
 		[[nodiscard]] std::vector<GraphicCardInformation> get_adapter_information() final;
 	private:
 		HWND m_window_handle{};
+		INT m_buffer_count{};
 
 		Microsoft::WRL::ComPtr<ID3D12Device6> m_device{};
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> m_swap_chain{};

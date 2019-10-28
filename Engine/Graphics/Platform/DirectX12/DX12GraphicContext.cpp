@@ -15,6 +15,7 @@ namespace nova::graphics
 	DX12GraphicContext::DX12GraphicContext(const GraphicSettings& settings): GraphicContext(settings)
 	{
 		m_window_handle = reinterpret_cast<HWND>(settings.window_handle);
+		m_buffer_count = settings.buffer_count;
 	}
 
 	void DX12GraphicContext::initialize()
@@ -28,7 +29,7 @@ namespace nova::graphics
 		m_compute_command_queue = DX12CommandQueueFactory::create(m_device, D3D12_COMMAND_LIST_TYPE_COMPUTE);
 		m_copy_command_queue = DX12CommandQueueFactory::create(m_device, D3D12_COMMAND_LIST_TYPE_COPY);
 		
-		m_swap_chain = DX12SwapChainFactory::create(m_graphic_command_queue, m_window_handle);
+		m_swap_chain = DX12SwapChainFactory::create(m_graphic_command_queue, m_window_handle, m_buffer_count);
 		
 		m_RTV_descriptor_heap = DX12DescriptorHeapFactory::create(m_device, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, 2);
 	}

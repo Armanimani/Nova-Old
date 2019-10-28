@@ -5,9 +5,9 @@
 
 namespace nova::graphics
 {
-	OpenGLGraphicContext::OpenGLGraphicContext(void* window_handle)
+	OpenGLGraphicContext::OpenGLGraphicContext(const GraphicSettings& settings): GraphicContext(settings)
 	{
-		m_window_handle = reinterpret_cast <HWND>(window_handle);
+		m_window_handle = reinterpret_cast <HWND>(settings.window_handle);
 	}
 
 	OpenGLGraphicContext::~OpenGLGraphicContext()

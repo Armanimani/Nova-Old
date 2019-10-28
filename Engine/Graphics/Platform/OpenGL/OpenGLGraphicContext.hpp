@@ -3,14 +3,14 @@
 #include <windows.h>
 
 #include "Engine/core.hpp"
-#include "Engine/Graphics/Context/GraphicContextInterface.hpp"
+#include "Engine/Graphics/Context/GraphicContext.hpp"
 
 namespace nova::graphics
 {
-	class NOVA_API OpenGLGraphicContext: public GraphicContextInterface
+	class NOVA_API OpenGLGraphicContext: public GraphicContext
 	{
 	public:
-		OpenGLGraphicContext(void* window_handle);
+		OpenGLGraphicContext(const GraphicSettings& settings);
 		~OpenGLGraphicContext();
 
 		OpenGLGraphicContext(const OpenGLGraphicContext& other) = delete;

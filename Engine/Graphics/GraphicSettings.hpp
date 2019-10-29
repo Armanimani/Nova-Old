@@ -10,5 +10,6 @@ namespace nova
 		void* window_handle{};
 		graphics::GraphicAPI api{ graphics::GraphicAPI::OpenGL };
 		Int32 buffer_count{ 3 };
+		bool enable_v_sync = false;
 	};
 }

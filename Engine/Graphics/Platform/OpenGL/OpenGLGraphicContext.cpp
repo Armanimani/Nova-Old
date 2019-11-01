@@ -77,6 +77,11 @@ namespace nova::graphics
 		SwapBuffers(m_device_context_handle);
 	}
 
+	void OpenGLGraphicContext::cleanup()
+	{
+		LOG_ENGINE_ERROR("Clean up method for OpenGL is not implemented yet");
+	}
+
 	GraphicAPI OpenGLGraphicContext::get_graphic_api() const noexcept
 	{
 		return GraphicAPI::OpenGL;

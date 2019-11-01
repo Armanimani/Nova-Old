@@ -100,10 +100,14 @@
     <ClCompile Include="Graphics\Context\GraphicContext.cpp" />
     <ClCompile Include="Graphics\Context\GraphicContextManager.cpp" />
     <ClCompile Include="Graphics\GraphicSystem.cpp" />
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12CommandAllocatorFactory.cpp" />
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12CommandListFactory.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12CommandQueueFactory.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12DescriptorHeapFactory.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12DXGIFactoryFactory.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12FeatureChecker.cpp" />
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12FenceEventFactory.cpp" />
+    <ClCompile Include="Graphics\Platform\DirectX12\DX12FenceFactory.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12GraphicContext.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12DeviceFactory.cpp" />
     <ClCompile Include="Graphics\Platform\DirectX12\DX12DebugController.cpp" />
@@ -132,11 +136,15 @@
     <ClInclude Include="Graphics\GraphicAPI.hpp" />
     <ClInclude Include="Graphics\GraphicSettings.hpp" />
     <ClInclude Include="Graphics\GraphicSystem.hpp" />
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12CommandAllocatorFactory.hpp" />
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12CommandListFactory.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12CommandQueueFactory.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12DescriptorHeapFactory.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12DeviceFactory.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12DXGIFactoryFactory.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12FeatureChecker.hpp" />
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12FenceEventFactory.hpp" />
+    <ClInclude Include="Graphics\Platform\DirectX12\DX12FenceFactory.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12GraphicContext.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12DebugController.hpp" />
     <ClInclude Include="Graphics\Platform\DirectX12\DX12SwapChainFactory.hpp" />
@@ -150,6 +158,9 @@
     <ProjectReference Include="..\External\GLEW\GLEW.vcxproj">
       <Project>{f2b4308c-b1ee-41d6-b5bf-75643ade73ab}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

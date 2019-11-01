@@ -19,6 +19,7 @@ namespace nova::graphics
 		
 		virtual void initialize() = 0;
 		virtual void present() = 0;
+		virtual void cleanup() = 0;
 		[[nodiscard]] virtual std::vector<GraphicCardInformation> get_adapter_information() = 0;
 		[[nodiscard]] virtual GraphicAPI get_graphic_api() const noexcept = 0;
 

@@ -9,6 +9,7 @@
 #include <dxgi1_6.h>
 #include <D3DX12/d3dx12.h>
 #include <vector>
+#include <chrono>
 
 
 namespace nova::graphics
@@ -25,22 +26,39 @@ namespace nova::graphics
 		
 		void initialize() final;
 		void present() final;
+		void cleanup() final;
 		[[nodiscard]] GraphicAPI get_graphic_api() const noexcept final;
 		[[nodiscard]] std::vector<GraphicCardInformation> get_adapter_information() final;
 	private:
+		// configuration settings
 		HWND m_window_handle{};
 		INT m_buffer_count{};
+		bool m_enable_v_sync{};
+
+		// internal values
+		INT m_frame_index{};
+		INT m_rtv_descriptor_size{};
+		HANDLE m_fence_event{};
+		
+		bool m_tearing_supported{};
 
 		Microsoft::WRL::ComPtr<ID3D12Device6> m_device{};
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> m_swap_chain{};
-		
+		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList5> m_graphic_command_list{};
 		Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_graphic_command_queue{};
-		Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_compute_command_queue{};
-		Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_copy_command_queue{};
+		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_rtv_descriptor_heap{};
 		
 		std::vector<Microsoft::WRL::ComPtr<ID3D12Resource1>> m_back_buffer_list{};
-		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_RTV_descriptor_heap{};
+		std::vector<Microsoft::WRL::ComPtr<ID3D12CommandAllocator>> m_command_allocator_list{};
 		
-		void update_render_target_views();
+		std::vector<Microsoft::WRL::ComPtr<ID3D12Fence1>> m_fence_list{};
+		std::vector<UINT64> m_fence_value_list{};
+		
+		void create_render_target_views();
+		void create_command_allocators();
+		void create_fences();
+
+		void wait_for_previous_frame();
+		void update_pipeline();
 	};
 }

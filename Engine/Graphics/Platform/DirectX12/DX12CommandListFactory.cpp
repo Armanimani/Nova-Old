@@ -11,6 +11,8 @@ namespace nova::graphics
 		{
 			LOG_ENGINE_ERROR("Unable to create the command list for DirectX12");
 		}
+		command_list->Close();
+		
 		return command_list;
 	}
 }
